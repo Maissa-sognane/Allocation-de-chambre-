@@ -14,6 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/chambre' => [[['_route' => 'chambre', '_controller' => 'App\\Controller\\ChambreController::index'], null, null, null, false, false, null]],
+        '/chambre/ajax' => [[['_route' => 'app_chambre_data', '_controller' => 'App\\Controller\\ChambreController::data'], null, null, null, false, false, null]],
         '/chambre/create' => [[['_route' => 'chambre_create', '_controller' => 'App\\Controller\\ChambreController::create'], null, null, null, false, false, null]],
         '/etudiant' => [[['_route' => 'etudiant', '_controller' => 'App\\Controller\\EtudiantController::index'], null, null, null, false, false, null]],
         '/etudiant/create' => [[['_route' => 'etudiant_create', '_controller' => 'App\\Controller\\EtudiantController::create'], null, null, null, false, false, null]],
@@ -38,6 +39,8 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/chambre/([0-9]+)/update(*:193)'
+                .'|/etudiant/([0-9]+)/update(*:226)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -47,8 +50,10 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        193 => [[['_route' => 'chambre_update', '_controller' => 'App\\Controller\\ChambreController::update'], ['id'], ['POST' => 0, 'GET' => 1], null, false, false, null]],
+        226 => [
+            [['_route' => 'etudiant_update', '_controller' => 'App\\Controller\\EtudiantController::update'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

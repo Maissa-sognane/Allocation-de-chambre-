@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\EtudiantRepository;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EtudiantRepository::class)
- * @UniqueEntity("email")
+ *@UniqueEntity("Email")
  */
 class Etudiant
 {
@@ -26,21 +27,41 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     *  @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Le prenom est invalid"
+     * )
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Le nom est invalid"
+     * )
+
      */
     private $Nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\Email(
+     *     message = "Votre email '{{ value }}' est invalid."
+     * )
      */
     private $Email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *@Assert\Regex(
+     *     pattern="/^7[0-9]{8}$/",
+     *     match=true,
+     *     message="Numero telephone invalid"
+     * )
      */
     private $telephone;
 

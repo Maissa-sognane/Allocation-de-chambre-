@@ -55,13 +55,13 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
     ";
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 13
+        // line 12
         echo "</head>
 <body style=\"background-color: #E5E5E5\">
 <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark static-top\">
     <div class=\"container-fluid\">
         <a class=\"navbar-brand\" href=\"#\"><img src=\"";
-        // line 17
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/log.png"), "html", null, true);
         echo "\" class=\" w-25 h-35\" alt=\"...\"></a>
         <div class=\"dropleft\">
@@ -70,22 +70,23 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
             </button>
             <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
                 ";
-        // line 23
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23)) {
-            // line 24
+        // line 22
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22)) {
+            // line 23
             echo "                    <a class=\"dropdown-item\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Deconnexion</a>
                 ";
         }
-        // line 26
-        echo "            </div>
+        // line 25
+        echo "
+            </div>
         </div>
     </div>
 </nav>
 <div class=\"container-fluid\">
     <div class=\"row\" style=\"height: -webkit-fill-available;\">
-        <div class=\"col-4\" style=\"background-color: #212529;color: white; height: 100vh;\">
+        <div class=\"col-4\" style=\"background-color: #212529;color: white;\">
             <div class=\"row\">
                 <div class=\"col-12\">
                     <p class=\"text-left p-3\" style=\"font-family: 'Roboto Slab'\">Menu</p>
@@ -121,7 +122,7 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
 ";
         // line 56
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 68
+        // line 70
         echo "</body>
 </html>
 ";
@@ -163,12 +164,11 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 7
-        echo "        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css\"/>
-        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\"
+        echo "        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\"
               integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" crossorigin=\"anonymous\">
-
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css\">
         <link rel=\"stylesheet\" href=\"";
-        // line 11
+        // line 10
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style.css"), "html", null, true);
         echo "\">
     ";
@@ -210,18 +210,20 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
 
         // line 57
         echo "
-    <script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\"
-            crossorigin=\"anonymous\"></script>
+    <script src=\"https://code.jquery.com/jquery-3.5.1.js\"
+            integrity=\"sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\"
             integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js\" i
             ntegrity=\"sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI\" crossorigin=\"anonymous\"></script>
     <script src=\"https://kit.fontawesome.com/8435a2a226.js\" crossorigin=\"anonymous\"></script>
+    <script type=\"text/javascript\" src=\"https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js\"></script>
     <script src=\"";
-        // line 65
+        // line 66
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/script.js"), "html", null, true);
         echo "\"></script>
-    <script type=\"text/javascript\" src=\"https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js\"></script>
+
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -243,7 +245,7 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
 
     public function getDebugInfo()
     {
-        return array (  222 => 65,  212 => 57,  202 => 56,  184 => 52,  172 => 11,  166 => 7,  156 => 6,  137 => 5,  125 => 68,  123 => 56,  118 => 53,  116 => 52,  105 => 44,  99 => 41,  82 => 26,  76 => 24,  74 => 23,  65 => 17,  59 => 13,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  223 => 66,  212 => 57,  202 => 56,  184 => 52,  172 => 10,  167 => 7,  157 => 6,  138 => 5,  126 => 70,  124 => 56,  119 => 53,  117 => 52,  106 => 44,  100 => 41,  82 => 25,  76 => 23,  74 => 22,  65 => 16,  59 => 12,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -254,10 +256,9 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
     <meta charset=\"UTF-8\">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
-        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css\"/>
         <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\"
               integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" crossorigin=\"anonymous\">
-
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css\">
         <link rel=\"stylesheet\" href=\"{{ asset('css/style.css') }}\">
     {% endblock %}
 </head>
@@ -273,13 +274,14 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
                 {% if app.user %}
                     <a class=\"dropdown-item\" href=\"{{ path('app_logout') }}\">Deconnexion</a>
                 {% endif %}
+
             </div>
         </div>
     </div>
 </nav>
 <div class=\"container-fluid\">
     <div class=\"row\" style=\"height: -webkit-fill-available;\">
-        <div class=\"col-4\" style=\"background-color: #212529;color: white; height: 100vh;\">
+        <div class=\"col-4\" style=\"background-color: #212529;color: white;\">
             <div class=\"row\">
                 <div class=\"col-12\">
                     <p class=\"text-left p-3\" style=\"font-family: 'Roboto Slab'\">Menu</p>
@@ -305,15 +307,17 @@ class __TwigTemplate_b7dea2aacb92fc51ca187c00348c2f0224876c74d91c2386e2b3b311a31
 </div>
 {% block javascripts %}
 
-    <script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\"
-            crossorigin=\"anonymous\"></script>
+    <script src=\"https://code.jquery.com/jquery-3.5.1.js\"
+            integrity=\"sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\"
             integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js\" i
             ntegrity=\"sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI\" crossorigin=\"anonymous\"></script>
     <script src=\"https://kit.fontawesome.com/8435a2a226.js\" crossorigin=\"anonymous\"></script>
+    <script type=\"text/javascript\" src=\"https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js\"></script>
     <script src=\"{{ asset('js/script.js') }}\"></script>
-    <script type=\"text/javascript\" src=\"https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js\"></script>
+
+
 {% endblock %}
 </body>
 </html>

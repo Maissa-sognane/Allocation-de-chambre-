@@ -105,19 +105,64 @@ class __TwigTemplate_5fe35f7a5d7e8e6484c5efcfe461d7bd6063b00a992913f43b4b69cd44d
             <br>
             <div class=\"row\">
                 <div class=\"col-12\">
-                    <table id=\"example\" class=\"table table-striped table-bordered\" style=\"width:100%\">
+                    ";
+        // line 56
+        echo "                    <table id=\"example\" class=\"table table-striped table-bordered\" style=\"width:100%\">
                         <thead>
                         <tr>
-                            <th>Numéro Chambre</th>
-                            <th>Numéro Batiment</th>
-                            <th>Type Chambre</th>
+                            <th>Numero Chambre</th>
+                            <th>Numero Batiment</th>
+                            <th>Type</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
+                        <tbody id=\"table_chambre\">
+                        ";
+        // line 66
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["chambre"]) || array_key_exists("chambre", $context) ? $context["chambre"] : (function () { throw new RuntimeError('Variable "chambre" does not exist.', 66, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["chambres"]) {
+            // line 67
+            echo "                            ";
+            if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, $context["chambres"], "numeroChambre", [], "any", false, false, false, 67), "Non logé"))) {
+                // line 68
+                echo "                            <tr>
+                                    <td>";
+                // line 69
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["chambres"], "numeroChambre", [], "any", false, false, false, 69), "html", null, true);
+                echo "</td>
+                                    <td>";
+                // line 70
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["chambres"], "numeroBatiment", [], "any", false, false, false, 70), "html", null, true);
+                echo "</td>
+                                    <td>";
+                // line 71
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["chambres"], "typechambre", [], "any", false, false, false, 71), "libele", [], "any", false, false, false, 71), "html", null, true);
+                echo "</td>
+                                    <td>
+                                        <a href=\"";
+                // line 73
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("chambre_update", ["id" => twig_get_attribute($this->env, $this->source, $context["chambres"], "id", [], "any", false, false, false, 73)]), "html", null, true);
+                echo "\">
+                                            <button class=\"btn btn-primary\">
+                                                <i class=\"fas fa-pen-square\" ></i>
+                                            </button>
+                                        </a>
+                                        <button class=\"btn btn-danger\"><i class=\"fas fa-trash\"></i></button>
+                                    </td>
+                            </tr>
+                            ";
+            }
+            // line 82
+            echo "                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['chambres'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 83
+        echo "                        </tbody>
+                    </table>
+
                     </table>
                 </div>
             </div>
@@ -144,7 +189,7 @@ class __TwigTemplate_5fe35f7a5d7e8e6484c5efcfe461d7bd6063b00a992913f43b4b69cd44d
 
     public function getDebugInfo()
     {
-        return array (  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  163 => 83,  157 => 82,  145 => 73,  140 => 71,  136 => 70,  132 => 69,  129 => 68,  126 => 67,  122 => 66,  110 => 56,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -171,25 +216,80 @@ class __TwigTemplate_5fe35f7a5d7e8e6484c5efcfe461d7bd6063b00a992913f43b4b69cd44d
             <br>
             <div class=\"row\">
                 <div class=\"col-12\">
+                    {#
+                    <table id=\"example\" class=\"table table-striped table-bordered table-responsive\" style=\"width:100%\">
+                            <thead>
+                            <tr>
+                                <th>Numéro Chambre</th>
+                                <th>Numéro Batiment</th>
+                                <th>Type Chambre</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id=\"table_chambre\">
+                            {% for chambres in chambre %}
+                                <tr>
+                                    {% if chambres.numeroChambre != \"Non logé\" %}
+                                        <td>{{ chambres.numeroChambre }}</td>
+                                        <td>{{ chambres.numeroBatiment }}</td>
+                                        <td>{{ chambres.typechambre.libele }}</td>
+                                        <td>
+                                            <a href=\"{{ path('chambre_update', {'id':chambres.id})}}\">
+                                                <button class=\"btn btn-primary\">
+                                                    <i class=\"fas fa-pen-square\" ></i>
+                                                </button>
+                                            </a>
+                                            <button class=\"btn btn-danger\"><i class=\"fas fa-trash\"></i></button>
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    #}
                     <table id=\"example\" class=\"table table-striped table-bordered\" style=\"width:100%\">
                         <thead>
                         <tr>
-                            <th>Numéro Chambre</th>
-                            <th>Numéro Batiment</th>
-                            <th>Type Chambre</th>
+                            <th>Numero Chambre</th>
+                            <th>Numero Batiment</th>
+                            <th>Type</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id=\"table_chambre\">
+                        {% for chambres in chambre %}
+                            {% if chambres.numeroChambre != \"Non logé\" %}
+                            <tr>
+                                    <td>{{ chambres.numeroChambre }}</td>
+                                    <td>{{ chambres.numeroBatiment }}</td>
+                                    <td>{{ chambres.typechambre.libele }}</td>
+                                    <td>
+                                        <a href=\"{{ path('chambre_update', {'id':chambres.id})}}\">
+                                            <button class=\"btn btn-primary\">
+                                                <i class=\"fas fa-pen-square\" ></i>
+                                            </button>
+                                        </a>
+                                        <button class=\"btn btn-danger\"><i class=\"fas fa-trash\"></i></button>
+                                    </td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
                         </tbody>
-                        <tfoot>
-                        </tfoot>
+                    </table>
+
                     </table>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
+
+
+
+
 ", "chambre/index.html.twig", "/opt/lampp/htdocs/symfony/Sama_Chambre/templates/chambre/index.html.twig");
     }
 }

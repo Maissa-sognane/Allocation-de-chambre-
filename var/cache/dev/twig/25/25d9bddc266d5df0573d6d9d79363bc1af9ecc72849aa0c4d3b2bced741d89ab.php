@@ -120,7 +120,7 @@ class __TwigTemplate_1a0ac0e27fdd2dd73792db3ac1643c1be4f39896edb707d8a2eb6ad2b15
         echo "\"
                 >
                 ";
-        // line 37
+        // line 36
         echo "                <button class=\"btn btn-dark btn-lg w-100 btn-connexion p-lg-3\" type=\"submit\">
                     Sign in
                 </button>
@@ -149,7 +149,7 @@ class __TwigTemplate_1a0ac0e27fdd2dd73792db3ac1643c1be4f39896edb707d8a2eb6ad2b15
 
     public function getDebugInfo()
     {
-        return array (  124 => 37,  119 => 25,  107 => 16,  102 => 13,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  124 => 36,  119 => 25,  107 => 16,  102 => 13,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -183,7 +183,6 @@ class __TwigTemplate_1a0ac0e27fdd2dd73792db3ac1643c1be4f39896edb707d8a2eb6ad2b15
                 {#
                     Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
                     See https://symfony.com/doc/current/security/remember_me.html
-
                     <div class=\"checkbox mb-3\">
                         <label>
                             <input type=\"checkbox\" name=\"_remember_me\"> Remember me
@@ -197,7 +196,6 @@ class __TwigTemplate_1a0ac0e27fdd2dd73792db3ac1643c1be4f39896edb707d8a2eb6ad2b15
         </div>
     </div>
 
-{% endblock %}
-", "security/login.html.twig", "/opt/lampp/htdocs/symfony/Sama_Chambre/templates/security/login.html.twig");
+{% endblock %}", "security/login.html.twig", "/opt/lampp/htdocs/symfony/Sama_Chambre/templates/security/login.html.twig");
     }
 }

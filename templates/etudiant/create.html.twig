@@ -10,7 +10,10 @@
 
     <div class="example-wrapper">
         <h1>Enrégistrement d'un étudiant</h1>
-
+            {% if msg %}
+                <div class="alert alert-danger">{{ msg }}</div>
+            {% endif %}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
         <div class="form-group">
             {{ form_start(form) }}
             <div class="my-custom-class-for-errors">
@@ -19,7 +22,8 @@
             {{ form_widget(form) }}
             <div id="choix">
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Sauvegarder</button>
+            <input type="hidden" value="" name="dateJour">
+            <button type="submit" class="btn btn-primary btn-lg" id="create_etudiant">Sauvegarder</button>
             {{ form_end(form) }}
         </div>
     </div>

@@ -92,28 +92,41 @@ class __TwigTemplate_1e2ba8cfde8bf64b8cd3f92c4aacf1d7b282156995da88bcc9bd1975100
 
     <div class=\"example-wrapper\">
         <h1>Enrégistrement d'un étudiant</h1>
-
-        <div class=\"form-group\">
             ";
-        // line 15
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_start');
+        // line 13
+        if ((isset($context["msg"]) || array_key_exists("msg", $context) ? $context["msg"] : (function () { throw new RuntimeError('Variable "msg" does not exist.', 13, $this->source); })())) {
+            // line 14
+            echo "                <div class=\"alert alert-danger\">";
+            echo twig_escape_filter($this->env, (isset($context["msg"]) || array_key_exists("msg", $context) ? $context["msg"] : (function () { throw new RuntimeError('Variable "msg" does not exist.', 14, $this->source); })()), "html", null, true);
+            echo "</div>
+            ";
+        }
+        // line 16
+        echo "        ";
+        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), [0 => "bootstrap_4_layout.html.twig"], true);
+        // line 17
+        echo "        <div class=\"form-group\">
+            ";
+        // line 18
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), 'form_start');
         echo "
             <div class=\"my-custom-class-for-errors\">
                 ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'errors');
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'errors');
         echo "
             </div>
             ";
-        // line 19
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'widget');
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), 'widget');
         echo "
             <div id=\"choix\">
             </div>
-            <button type=\"submit\" class=\"btn btn-primary btn-lg\">Sauvegarder</button>
+            <input type=\"hidden\" value=\"\" name=\"dateJour\">
+            <button type=\"submit\" class=\"btn btn-primary btn-lg\" id=\"create_etudiant\">Sauvegarder</button>
             ";
-        // line 23
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), 'form_end');
+        // line 27
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_end');
         echo "
         </div>
     </div>
@@ -138,7 +151,7 @@ class __TwigTemplate_1e2ba8cfde8bf64b8cd3f92c4aacf1d7b282156995da88bcc9bd1975100
 
     public function getDebugInfo()
     {
-        return array (  116 => 23,  109 => 19,  104 => 17,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  129 => 27,  121 => 22,  116 => 20,  111 => 18,  108 => 17,  105 => 16,  99 => 14,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -155,7 +168,10 @@ class __TwigTemplate_1e2ba8cfde8bf64b8cd3f92c4aacf1d7b282156995da88bcc9bd1975100
 
     <div class=\"example-wrapper\">
         <h1>Enrégistrement d'un étudiant</h1>
-
+            {% if msg %}
+                <div class=\"alert alert-danger\">{{ msg }}</div>
+            {% endif %}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
         <div class=\"form-group\">
             {{ form_start(form) }}
             <div class=\"my-custom-class-for-errors\">
@@ -164,7 +180,8 @@ class __TwigTemplate_1e2ba8cfde8bf64b8cd3f92c4aacf1d7b282156995da88bcc9bd1975100
             {{ form_widget(form) }}
             <div id=\"choix\">
             </div>
-            <button type=\"submit\" class=\"btn btn-primary btn-lg\">Sauvegarder</button>
+            <input type=\"hidden\" value=\"\" name=\"dateJour\">
+            <button type=\"submit\" class=\"btn btn-primary btn-lg\" id=\"create_etudiant\">Sauvegarder</button>
             {{ form_end(form) }}
         </div>
     </div>

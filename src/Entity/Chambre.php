@@ -6,6 +6,7 @@ use App\Repository\ChambreRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ChambreRepository::class)
@@ -19,8 +20,11 @@ class Chambre
      */
     private $id;
 
+
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Type("numeric")
+     * @Assert\Positive
      */
     private $numeroBatiment;
 
@@ -33,6 +37,11 @@ class Chambre
      * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="Chambre")
      */
     private $etudiants;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $numeroChambre;
 
     public function __construct()
     {
@@ -95,6 +104,18 @@ class Chambre
                 $etudiant->setChambre(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNumeroChambre(): ?string
+    {
+        return $this->numeroChambre;
+    }
+
+    public function setNumeroChambre(string $numeroChambre): self
+    {
+        $this->numeroChambre = $numeroChambre;
 
         return $this;
     }

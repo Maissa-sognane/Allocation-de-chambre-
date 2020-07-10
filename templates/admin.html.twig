@@ -1,3 +1,4 @@
+{% if app.user %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% endblock %}
 </head>
-<body style="background-color: #E5E5E5">
+<body style="">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="{{ asset('img/log.png') }}" class=" w-25 h-35" alt="..."></a>
@@ -19,16 +20,13 @@
                 <i class="fas fa-user"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% if app.user %}
                     <a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a>
-                {% endif %}
-
             </div>
         </div>
     </div>
 </nav>
 <div class="container-fluid">
-    <div class="row" style="height: -webkit-fill-available;">
+    <div class="row" style="height: 89.2vh">
         <div class="col-4" style="background-color: #212529;color: white;">
             <div class="row">
                 <div class="col-12">
@@ -48,13 +46,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-8" id="menu" style="background-color: #E5E5E5">
+        <div class="col-8" id="menu" style="">
             {% block body %}{% endblock %}
         </div>
     </div>
 </div>
 {% block javascripts %}
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -69,3 +67,5 @@
 {% endblock %}
 </body>
 </html>
+{% endif %}
+

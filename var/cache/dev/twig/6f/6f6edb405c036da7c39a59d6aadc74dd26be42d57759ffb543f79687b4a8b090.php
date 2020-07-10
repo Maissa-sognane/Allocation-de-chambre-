@@ -90,12 +90,30 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
 
-    <div class=\"example-wrapper\">
-        <div class=\"container\">
+        <div class=\"container-fluid p-3 \">
+               ";
+        // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "flashes", [0 => "info"], "method", false, false, false, 12));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 13
+            echo "                   <div class=\"flash-notice alert alert-success\">
+                       ";
+            // line 14
+            echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+            echo "
+                   </div>
+               ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        echo "
             <div class=\"row\">
                 <div class=\"col\">
                     <a href=\"";
-        // line 15
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("etudiant_create");
         echo "\">
                         <button type=\"button\" class=\"btn btn-primary btn-lg\"><i class=\"fas fa-plus-square\"></i></button>
@@ -120,50 +138,55 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
                         </thead>
                         <tbody>
                         ";
-        // line 37
+        // line 42
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["etudiants"]) || array_key_exists("etudiants", $context) ? $context["etudiants"] : (function () { throw new RuntimeError('Variable "etudiants" does not exist.', 37, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["etudiants"]) || array_key_exists("etudiants", $context) ? $context["etudiants"] : (function () { throw new RuntimeError('Variable "etudiants" does not exist.', 42, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["etudiant"]) {
-            // line 38
+            // line 43
             echo "                            <tr>
                                 <td>";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "matricule", [], "any", false, false, false, 39), "html", null, true);
-            echo "</td>
-                                <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "prenom", [], "any", false, false, false, 40), "html", null, true);
-            echo "</td>
-                                <td>";
-            // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "nom", [], "any", false, false, false, 41), "html", null, true);
-            echo "</td>
-                                <td>";
-            // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "email", [], "any", false, false, false, 42), "html", null, true);
-            echo "</td>
-                                <td>";
-            // line 43
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "adresse", [], "any", false, false, false, 43), "html", null, true);
-            echo "</td>
-                                <td>";
             // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["etudiant"], "bourse", [], "any", false, false, false, 44), "libele", [], "any", false, false, false, 44), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "matricule", [], "any", false, false, false, 44), "html", null, true);
             echo "</td>
                                 <td>";
             // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["etudiant"], "chambre", [], "any", false, false, false, 45), "numerochambre", [], "any", false, false, false, 45), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "prenom", [], "any", false, false, false, 45), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "nom", [], "any", false, false, false, 46), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "email", [], "any", false, false, false, 47), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "adresse", [], "any", false, false, false, 48), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["etudiant"], "bourse", [], "any", false, false, false, 49), "libele", [], "any", false, false, false, 49), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["etudiant"], "chambre", [], "any", false, false, false, 50), "numerochambre", [], "any", false, false, false, 50), "html", null, true);
             echo "</td>
                                 <td>
                                     <a href=\"";
-            // line 47
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("etudiant_update", ["id" => twig_get_attribute($this->env, $this->source, $context["etudiant"], "id", [], "any", false, false, false, 47)]), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("etudiant_update", ["id" => twig_get_attribute($this->env, $this->source, $context["etudiant"], "id", [], "any", false, false, false, 52)]), "html", null, true);
             echo "\">
                                         <button class=\"btn btn-primary\">
                                             <i class=\"fas fa-pen-square\" ></i>
                                         </button>
                                     </a>
-                                    <button class=\"btn btn-danger\"><i class=\"fas fa-trash\"></i></button>
+                                    <button class=\"btn btn-danger delete-etudiant\" id=\"";
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["etudiant"], "id", [], "any", false, false, false, 57), "html", null, true);
+            echo "\">
+                                        <i class=\"fas fa-trash\"></i>
+                                    </button>
                                 </td>
                             </tr>
                         ";
@@ -171,7 +194,7 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['etudiant'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
+        // line 63
         echo "                        </tbody>
                         <tfoot>
                         </tfoot>
@@ -179,7 +202,7 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
                 </div>
             </div>
         </div>
-    </div>
+
 
 ";
         
@@ -202,7 +225,7 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
 
     public function getDebugInfo()
     {
-        return array (  175 => 56,  160 => 47,  155 => 45,  151 => 44,  147 => 43,  143 => 42,  139 => 41,  135 => 40,  131 => 39,  128 => 38,  124 => 37,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  198 => 63,  186 => 57,  178 => 52,  173 => 50,  169 => 49,  165 => 48,  161 => 47,  157 => 46,  153 => 45,  149 => 44,  146 => 43,  142 => 42,  117 => 20,  112 => 17,  103 => 14,  100 => 13,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -217,8 +240,13 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
 
-    <div class=\"example-wrapper\">
-        <div class=\"container\">
+        <div class=\"container-fluid p-3 \">
+               {% for message in app.flashes('info') %}
+                   <div class=\"flash-notice alert alert-success\">
+                       {{ message }}
+                   </div>
+               {% endfor %}
+
             <div class=\"row\">
                 <div class=\"col\">
                     <a href=\"{{ path('etudiant_create') }}\">
@@ -258,7 +286,9 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
                                             <i class=\"fas fa-pen-square\" ></i>
                                         </button>
                                     </a>
-                                    <button class=\"btn btn-danger\"><i class=\"fas fa-trash\"></i></button>
+                                    <button class=\"btn btn-danger delete-etudiant\" id=\"{{ etudiant.id }}\">
+                                        <i class=\"fas fa-trash\"></i>
+                                    </button>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -269,7 +299,7 @@ class __TwigTemplate_89b6b9ab57b7b234bab69a825c51c251733c6d15642b311f79d43fea8e9
                 </div>
             </div>
         </div>
-    </div>
+
 
 {% endblock %}
 ", "etudiant/index.html.twig", "/opt/lampp/htdocs/symfony/Sama_Chambre/templates/etudiant/index.html.twig");

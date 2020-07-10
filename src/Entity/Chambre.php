@@ -17,14 +17,16 @@ class Chambre
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Assert\Type("Ramsey\Uuid\UuidInterface")
      */
     private $id;
 
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Type("numeric")
      * @Assert\Positive
+     *@Assert\NotNull(
+     *    message = "Champ Numero de Batiment  Vide")
      */
     private $numeroBatiment;
 

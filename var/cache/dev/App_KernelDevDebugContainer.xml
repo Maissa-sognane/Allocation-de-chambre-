@@ -136,7 +136,6 @@
     <parameter key="serializer.mapping.cache.file">/opt/lampp/htdocs/symfony/Sama_Chambre/var/cache/dev/serialization.php</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
-      <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/opt/lampp/htdocs/symfony/Sama_Chambre/templates</parameter>
     <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
@@ -4378,7 +4377,6 @@
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="iterator">
         <argument type="service" id="security.authentication.provider.guard.main"/>
-        <argument type="service" id="security.authentication.provider.anonymous.main"/>
       </argument>
       <argument>true</argument>
       <call method="setEventDispatcher">
@@ -4483,7 +4481,6 @@
       <argument>null</argument>
       <argument type="collection">
         <argument>guard</argument>
-        <argument>anonymous</argument>
       </argument>
       <argument>null</argument>
     </service>
@@ -4592,15 +4589,6 @@
       </argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
     </service>
-    <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
-      <argument type="service" id="security.untracked_token_storage"/>
-      <argument>%container.build_hash%</argument>
-      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
-      <argument type="service" id="security.authentication.manager"/>
-    </service>
-    <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>%container.build_hash%</argument>
-    </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.authentication.trust_resolver"/>
@@ -4617,7 +4605,6 @@
         <argument type="service" id="security.channel_listener"/>
         <argument type="service" id="security.context_listener.0"/>
         <argument type="service" id="security.authentication.listener.guard.main"/>
-        <argument type="service" id="security.authentication.listener.anonymous.main"/>
         <argument type="service" id="security.access_listener"/>
       </argument>
       <argument type="service" id="security.exception_listener.main"/>
@@ -5300,20 +5287,31 @@
         <argument key="etudiantRepository" type="service" id="App\Repository\EtudiantRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.PpDot2H" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="etudiant" type="service" id=".errored..service_locator.PpDot2H.App\Entity\Etudiant"/>
+      </argument>
+    </service>
     <service id=".service_locator.xA8Fw_." class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.k35CXx1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.uteOmrI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\ChambreController::MessageDelete" type="service" id=".service_locator.84fFt1X"/>
         <argument key="App\Controller\ChambreController::create" type="service" id=".service_locator.IFW.IA7"/>
+        <argument key="App\Controller\ChambreController::delete" type="service" id=".service_locator.84fFt1X"/>
         <argument key="App\Controller\ChambreController::index" type="service" id=".service_locator.cw7jBpu"/>
         <argument key="App\Controller\ChambreController::update" type="service" id=".service_locator.84fFt1X"/>
         <argument key="App\Controller\EtudiantController::create" type="service" id=".service_locator.wk3udb8"/>
+        <argument key="App\Controller\EtudiantController::delete" type="service" id=".service_locator.PpDot2H"/>
         <argument key="App\Controller\EtudiantController::index" type="service" id=".service_locator.unHTEds"/>
+        <argument key="App\Controller\EtudiantController::messageDelete" type="service" id=".service_locator.PpDot2H"/>
         <argument key="App\Controller\EtudiantController::update" type="service" id=".service_locator.cXGvmlo"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.xA8Fw_."/>
         <argument key="App\Kernel::loadRoutes" type="service" id=".service_locator.C9JCBPC"/>
@@ -5322,11 +5320,15 @@
         <argument key="kernel::loadRoutes" type="service" id=".service_locator.C9JCBPC"/>
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.C9JCBPC"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.beq5mCo"/>
+        <argument key="App\Controller\ChambreController:MessageDelete" type="service" id=".service_locator.84fFt1X"/>
         <argument key="App\Controller\ChambreController:create" type="service" id=".service_locator.IFW.IA7"/>
+        <argument key="App\Controller\ChambreController:delete" type="service" id=".service_locator.84fFt1X"/>
         <argument key="App\Controller\ChambreController:index" type="service" id=".service_locator.cw7jBpu"/>
         <argument key="App\Controller\ChambreController:update" type="service" id=".service_locator.84fFt1X"/>
         <argument key="App\Controller\EtudiantController:create" type="service" id=".service_locator.wk3udb8"/>
+        <argument key="App\Controller\EtudiantController:delete" type="service" id=".service_locator.PpDot2H"/>
         <argument key="App\Controller\EtudiantController:index" type="service" id=".service_locator.unHTEds"/>
+        <argument key="App\Controller\EtudiantController:messageDelete" type="service" id=".service_locator.PpDot2H"/>
         <argument key="App\Controller\EtudiantController:update" type="service" id=".service_locator.cXGvmlo"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.xA8Fw_."/>
         <argument key="kernel:loadRoutes" type="service" id=".service_locator.C9JCBPC"/>
@@ -5805,12 +5807,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.k35CXx1"/>
+      <argument type="service" id=".service_locator.uteOmrI"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.k35CXx1"/>
+      <argument type="service" id=".service_locator.uteOmrI"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5824,6 +5826,7 @@
     <service id=".errored..service_locator.C9JCBPC.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.84fFt1X.App\Entity\Chambre" class="App\Entity\Chambre"/>
     <service id=".errored..service_locator.cXGvmlo.App\Entity\Etudiant" class="App\Entity\Etudiant"/>
+    <service id=".errored..service_locator.PpDot2H.App\Entity\Etudiant" class="App\Entity\Etudiant"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
       <argument type="service" id=".service_locator.YPyr9Yt"/>
@@ -6207,7 +6210,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.k35CXx1"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.uteOmrI"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

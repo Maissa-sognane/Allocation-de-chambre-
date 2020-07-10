@@ -56,6 +56,9 @@ class ChambreController extends AbstractController
     }
 
 
+
+
+
     /**
      * @Route("/chambre/create", name="chambre_create")
      * @param Request $request
@@ -118,6 +121,47 @@ class ChambreController extends AbstractController
         return $this->render('chambre/create.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+        /**
+     * @Route("/chambre/{id<[0-9]+>}/delete ", name="chambre_delete", methods={"POST", "GET"})
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @param Chambre $chambre
+     * @return Response
+     */
+    public function MessageDelete(Request $request, EntityManagerInterface $em, Chambre $chambre):Response{
+
+        $jsonData = array();
+        $idx = 0;
+        $tabEtudiant = [];
+
+        foreach ($chambre->getEtudiants()->getValues() as $etudiant){
+                $tabEtudiant[] = array(
+                    'matricule'=>$etudiant->getMatricule(),
+                    'prenom'=>$etudiant->getPrenom(),
+                );
+        }
+            $temp = array(
+                'id'=> $chambre->getId(),
+                'etudiants' => $tabEtudiant,
+                'numerochambre' => $chambre->getNumeroChambre(),
+            );
+            $jsonData = $temp;
+        return new JsonResponse($jsonData);
+    }
+
+    /**
+     * @Route("/chambre/{id<[0-9]+>}/delete_chambre ", name="chambre_delete_chambre", methods={"POST", "GET"})
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @param Chambre $chambre
+     * @return Response
+     */
+    public function delete(Request $request, EntityManagerInterface $em, Chambre $chambre):Response{
+        $em->remove($chambre);
+        $em->flush();
+        return $this->redirectToRoute('chambre');
     }
 
 }

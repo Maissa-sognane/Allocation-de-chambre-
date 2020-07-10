@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EtudiantRepository::class)
- *@UniqueEntity("Email")
+ *@UniqueEntity("Email", message="Email existe deja")
  */
 class Etudiant
 {
@@ -27,7 +27,8 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Assert\NotNull(
+     *     message = "Champ Prenom Vide")
      *  @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
@@ -38,6 +39,8 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotNull(
+     *     message = "Champ Nom Vide")
      * @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
@@ -48,7 +51,9 @@ class Etudiant
     private $Nom;
 
     /**
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(name="Email", type="string", length=255, unique=true)
+     * @Assert\NotNull(
+     *     message = "Champ Email Vide")
      * @Assert\Email(
      *     message = "Votre email '{{ value }}' est invalid."
      * )
@@ -57,6 +62,8 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(
+     *     message = "Champ Telephone Vide")
      *@Assert\Regex(
      *     pattern="/^7[0-9]{8}$/",
      *     match=true,
@@ -77,11 +84,15 @@ class Etudiant
 
     /**
      * @ORM\ManyToOne(targetEntity=Chambre::class, inversedBy="etudiants")
+     * @Assert\NotNull(
+     *     message = "Champ Chambre Vide")
      */
     private $Chambre;
 
     /**
      * @ORM\ManyToOne(targetEntity=Bourse::class, inversedBy="etudiants")
+     * @Assert\NotNull(
+     *     message = "Champ Bourse Vide")
      */
     private $Bourse;
 

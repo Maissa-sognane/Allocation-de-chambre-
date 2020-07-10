@@ -7,8 +7,8 @@
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
-
-    <div class="example-wrapper">
+{#
+<div class="example-wrapper">
         <h1>Enrégistrement d'un étudiant</h1>
             {% if msg %}
                 <div class="alert alert-danger">{{ msg }}</div>
@@ -27,4 +27,56 @@
             {{ form_end(form) }}
         </div>
     </div>
+#}
+    <h1 style="font-family: 'Roboto Slab'" class="text-center">Enrégistrement d'un étudiant</h1>
+    {% if msg %}
+        <div class="alert alert-danger">{{ msg }}</div>
+    {% endif %}
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+            {{ form_start(form) }}
+        <div class="form-row">
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(form) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.Prenom) }}
+                {{ form_widget(form.Prenom, {'attr': {'class': 'form-control', 'placeholder': 'Prenom'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.Nom) }}
+                {{ form_widget(form.Nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.Email) }}
+                {{ form_widget(form.Email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.dateNaissance) }}
+                {{ form_widget(form.dateNaissance) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.telephone) }}
+                {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder': '770000000'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.Adresse) }}
+                {{ form_widget(form.Adresse, {'attr': {'class': 'form-control', 'placeholder': 'Adresse'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.Chambre) }}
+                {{ form_widget(form.Chambre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form_label(form.Bourse) }}
+                {{ form_widget(form.Bourse, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div id="choix">
+            </div>
+            <input type="hidden" value="" name="dateJour">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-info btn-lg" id="create_etudiant">Sauvegarder</button>
+            </div>
+        </div>
+            {{ form_end(form) }}
+
 {% endblock %}

@@ -89,31 +89,33 @@ class __TwigTemplate_cd7525f3827f445584125e9fa9f9020e880d7331732b3482613d997e369
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
-
-    <div class=\"example-wrapper\">
-        <h1>Enrégistrement d'une chambre</h1>
-
+    ";
+        // line 10
+        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), [0 => "bootstrap_4_layout.html.twig"], true);
+        // line 11
+        echo "    <div class=\"example-wrapper\">
+        <h1 style=\"font-family: 'Roboto Slab'\" class=\"text-center\">Enrégistrement d'une chambre</h1>
         <div class=\"form-group\">
             ";
-        // line 15
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_start');
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'form_start');
         echo "
             <div class=\"my-custom-class-for-errors\">
                 ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'errors');
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'errors');
         echo "
             </div>
             ";
-        // line 19
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'widget');
+        // line 18
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), 'widget');
         echo "
             <div id=\"choix\">
             </div>
             <button type=\"submit\" class=\"btn btn-primary btn-lg\">Sauvegarder</button>
             ";
-        // line 23
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), 'form_end');
+        // line 22
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), 'form_end');
         echo "
         </div>
     </div>
@@ -138,7 +140,7 @@ class __TwigTemplate_cd7525f3827f445584125e9fa9f9020e880d7331732b3482613d997e369
 
     public function getDebugInfo()
     {
-        return array (  116 => 23,  109 => 19,  104 => 17,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  118 => 22,  111 => 18,  106 => 16,  101 => 14,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -152,10 +154,9 @@ class __TwigTemplate_cd7525f3827f445584125e9fa9f9020e880d7331732b3482613d997e369
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
-
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
     <div class=\"example-wrapper\">
-        <h1>Enrégistrement d'une chambre</h1>
-
+        <h1 style=\"font-family: 'Roboto Slab'\" class=\"text-center\">Enrégistrement d'une chambre</h1>
         <div class=\"form-group\">
             {{ form_start(form) }}
             <div class=\"my-custom-class-for-errors\">

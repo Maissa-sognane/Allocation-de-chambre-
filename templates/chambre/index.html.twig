@@ -7,9 +7,7 @@
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
-
-    <div class="example-wrapper">
-        <div class="container">
+        <div class="container-fluid container-fluid p-3 ">
             <div class="row">
                 <div class="col">
                     <a href="{{ path('chambre_create') }}">
@@ -42,7 +40,9 @@
                                                 <i class="fas fa-pen-square" ></i>
                                             </button>
                                         </a>
-                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        <button class="btn btn-danger chambre_delete"  id="{{ chambres.id }}">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                             </tr>
                             {% endif %}
@@ -54,7 +54,6 @@
                 </div>
             </div>
         </div>
-    </div>
 {% endblock %}
 
 

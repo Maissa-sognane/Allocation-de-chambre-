@@ -39,8 +39,16 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/chambre/([0-9]+)/update(*:193)'
-                .'|/etudiant/([0-9]+)/update(*:226)'
+                .'|/chambre/(?'
+                    .'|([0-9]+)/update(*:196)'
+                    .'|([0-9]+)/delete(*:219)'
+                    .'|([0-9]+)/delete_chambre(*:250)'
+                .')'
+                .'|/etudiant/(?'
+                    .'|([0-9]+)/update(*:287)'
+                    .'|([0-9]+)/delete_message(*:318)'
+                    .'|([0-9]+)/delete(*:341)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -51,9 +59,13 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        193 => [[['_route' => 'chambre_update', '_controller' => 'App\\Controller\\ChambreController::update'], ['id'], ['POST' => 0, 'GET' => 1], null, false, false, null]],
-        226 => [
-            [['_route' => 'etudiant_update', '_controller' => 'App\\Controller\\EtudiantController::update'], ['id'], null, null, false, false, null],
+        196 => [[['_route' => 'chambre_update', '_controller' => 'App\\Controller\\ChambreController::update'], ['id'], ['POST' => 0, 'GET' => 1], null, false, false, null]],
+        219 => [[['_route' => 'chambre_delete', '_controller' => 'App\\Controller\\ChambreController::MessageDelete'], ['id'], ['POST' => 0, 'GET' => 1], null, false, false, null]],
+        250 => [[['_route' => 'chambre_delete_chambre', '_controller' => 'App\\Controller\\ChambreController::delete'], ['id'], ['POST' => 0, 'GET' => 1], null, false, false, null]],
+        287 => [[['_route' => 'etudiant_update', '_controller' => 'App\\Controller\\EtudiantController::update'], ['id'], null, null, false, false, null]],
+        318 => [[['_route' => 'delete_message', '_controller' => 'App\\Controller\\EtudiantController::messageDelete'], ['id'], null, null, false, false, null]],
+        341 => [
+            [['_route' => 'delete', '_controller' => 'App\\Controller\\EtudiantController::delete'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
